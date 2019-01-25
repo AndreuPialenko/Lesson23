@@ -3,17 +3,18 @@ package com.pialenko.figuresfx.Controller.Figures;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-public class Circle extends Figures {
+public class Circle extends Figure {
 
     public double radius;
 
     public Circle(double cx, double cy, double lineWidth, Color color) {
-        super(Figures.FIGURE_TIPE_CIRCLE, cx, cy, lineWidth, color);
+        super(Figure.FIGURE_TIPE_CIRCLE, cx, cy, lineWidth, color);
     }
 
     public Circle(double cx, double cy, double lineWidth, Color color, double radius) {
         this(cx, cy, lineWidth, color);
         this.radius = radius;
+        this.radius = radius < 20 ? 20 : radius;
     }
 
     public double getRadius() {
@@ -25,7 +26,7 @@ public class Circle extends Figures {
     }
 
     @Override
-    public void draw(GraphicsContext gc) {
+    public void draws(GraphicsContext gc) {
         gc.setLineWidth(lineWidth);
         gc.setStroke(color);
         gc.strokeOval(cx - radius, cy - radius, radius*2, radius*2);

@@ -1,9 +1,8 @@
 package com.pialenko.figuresfx.Controller.Figures;
 
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-public abstract class Figures {
+ public abstract class Figure implements Drawable{
     public static final int FIGURE_TIPE_CIRCLE = 0;
     public static final int FIGURE_TIPE_PRIAMOYGOLNIK = 1;
     public static final int FIGURE_TIPE_TREYGOLNIK = 2;
@@ -14,7 +13,7 @@ public abstract class Figures {
     protected double lineWidth;
     protected Color color;
 
-    public Figures(int type, double cx, double cy, double lineWidth, Color color) {
+    public Figure(int type, double cx, double cy, double lineWidth, Color color) {
         this.type = type;
         this.cx = cx;
         this.cy = cy;
@@ -58,5 +57,7 @@ public abstract class Figures {
         this.color = color;
     }
 
-    public abstract void draw(GraphicsContext gc);
+//    public abstract void draw(GraphicsContext gc); после имплемета не нужен метод
+
+
 }
